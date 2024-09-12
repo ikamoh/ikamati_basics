@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Git and Version Control</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #0056b3;
+}
+
+h2 {
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+p {
+    margin: 15px 0;
+}
+
+ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+code {
+    background: #e9ecef;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 90%;
+}
+
+.command {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007BFF;
+    padding: 10px;
+    margin: 10px 0;
+    font-family: monospace;
+}
+
+.diagram {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <%- include('./partials/nav.ejs'); %>
+    <div class="container">
+        <h1>Understanding Git and Version Control</h1>
+        <p>Imagine you're working on a big school project with your friends, and you want to keep track of all the changes you make to your project. Git is a tool that helps you do just that! It keeps a history of everything you do, so you can see what changes were made, who made them, and when.</p>
+
+        <h2>What is a Git Repository?</h2>
+        <p>Think of a Git repository (or "repo") as a special folder on your computer where all the files for your project are kept, along with a history of every change you make to those files. It's like a diary for your project, where every edit and update is recorded.</p>
+
+        <h3>How It Works:</h3>
+        <ol>
+            <li><strong>Creating a Repo:</strong> When you start a new project and want to use Git, you first create a repo. This is like setting up a new diary. You can do this by running the command:
+                <div class="command">git init</div>
+                This creates a hidden <code>.git</code> folder inside your project folder that keeps track of everything.</li>
+            <li><strong>Cloning a Repo:</strong> If you want to work on a project that someone else started, you can make a copy of their repo to your own computer using:
+                <div class="command">git clone &lt;repository-link&gt;</div></li>
+        </ol>
+
+        <h2>Basic Git Actions</h2>
+        <h3>1. Staging Files</h3>
+        <p>Before you can save your changes to your project’s history, you need to prepare them. This is called "staging." It’s like picking which pages of your diary you want to add before you actually write them down.</p>
+        <ul>
+            <li><strong>Adding Files:</strong> To stage files, you use:
+                <div class="command">git add filename</div>
+                This tells Git that you’re ready to include these files in your next save.</li>
+            <li><strong>Adding All Files:</strong> To stage all changes at once:
+                <div class="command">git add .</div></li>
+            <li><strong>Checking Status:</strong> To see which files are staged:
+                <div class="command">git status</div></li>
+        </ul>
+
+        <h3>2. Committing Changes</h3>
+        <p>After staging your files, you save your changes with a commit. Think of this as writing in your diary. You write a message describing what you changed, so you can remember later.</p>
+        <ul>
+            <li><strong>Committing:</strong> To save your changes, you use:
+                <div class="command">git commit -m "Your message here"</div>
+                This creates a new entry in your project’s history.</li>
+            <li><strong>Viewing History:</strong> To see past commits:
+                <div class="command">git log</div></li>
+        </ul>
+
+        <h3>3. Pushing Changes</h3>
+        <p>Once you’ve made changes and saved them with a commit, you might want to share those changes with others. This is called "pushing." It’s like posting your diary entry online so everyone can see it.</p>
+        <ul>
+            <li><strong>Pushing:</strong> To upload your commits to a remote repository (like on GitHub), you use:
+                <div class="command">git push</div></li>
+        </ul>
+
+        <h3>4. Pulling Changes</h3>
+        <p>Sometimes, other people might make changes to the project that you need to get. This is called "pulling." It’s like checking if there are any new entries in the shared diary before you write your own.</p>
+        <ul>
+            <li><strong>Pulling:</strong> To download and update your project with others’ changes, you use:
+                <div class="command">git pull</div></li>
+        </ul>
+
+        <h2>Branches</h2>
+        <p>Imagine your project as a big book. You might want to write a new chapter (or feature) without messing up the existing chapters. Branches let you work on different parts of the project separately.</p>
+        <ul>
+            <li><strong>Creating a Branch:</strong> To start a new chapter, you create a branch:
+                <div class="command">git branch new-branch-name</div>
+                or, to create and switch to the new branch at the same time:
+                <div class="command">git checkout -b new-branch-name</div></li>
+            <li><strong>Switching Branches:</strong> To work on a different chapter, you switch branches:
+                <div class="command">git checkout branch-name</div></li>
+            <li><strong>Merging Branches:</strong> When you’re done with your new chapter and want to add it back to the main book, you merge branches:
+                <div class="command">git merge branch-name</div></li>
+        </ul>
+
+        <h2>Summary</h2>
+        <p>Here’s a quick summary of the key actions in Git:</p>
+        <ul>
+            <li><strong>Repository:</strong> A folder that keeps track of all your project files and their history.</li>
+            <li><strong>Staging:</strong> Preparing files to be saved.</li>
+            <li><strong>Committing:</strong> Saving your changes with a description.</li>
+            <li><strong>Pushing:</strong> Uploading your saved changes to a remote repo.</li>
+            <li><strong>Pulling:</strong> Downloading changes from a remote repo.</li>
+            <li><strong>Branches:</strong> Working on different parts of your project separately.</li>
+        </ul>
+
+        <p>By using Git, you can manage your project’s changes, collaborate with others, and keep a clear history of what’s been done. It’s like having a super organized diary for your project!</p>
+    </div>
+</body>
+</html>
